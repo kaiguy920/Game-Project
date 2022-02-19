@@ -1,0 +1,74 @@
+body {
+    background-color: blueviolet;
+}
+
+
+#header {
+    display: flex;
+    justify-content: center;
+}
+
+#level {
+display: flex;
+justify-content: flex-start;
+margin-left: 30px;
+}
+
+#turns {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+#instructions {
+    display: flex;
+    justify-content: center;
+}
+
+#instructDets {
+    display: flex;
+    justify-content: center;
+}
+
+#imgContainer {
+    background-image: url(../images/board.gif); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* background-size: cover; */
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-rows: 13.5% 12% 12% 12% 12% 12% 12% 14.5%;
+    grid-template-columns: 14% 12% 12% 12% 12% 12% 12% 14%;
+}
+
+
+/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+#navyDump {
+    /* position: absolute; */
+    grid-area: 3 / 5 / 6 / 6;      
+}
+
+#purpleDump {
+    grid-area: 3 / 2 / 6 / 3;
+}
+
+#tealDump {
+    grid-area: 7 / 4 / 8 / 7;
+}
+
+#yellowDump {
+    grid-area: 2 / 7 / 6 / 8; 
+}
+#greenCar {
+    grid-area: 2 / 2 / 3 / 4;
+}
+#lightBlueCar {
+    grid-area: 6 / 6 / 7 / 8;
+}
+#redCar {
+    grid-area: 4 / 3 / 5 / 5;
+}
+#orangeCar {
+    grid-area: 6 / 2 / 8 / 3;
+}
