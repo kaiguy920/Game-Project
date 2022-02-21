@@ -94,7 +94,7 @@ margin-left: 30px;
 }
 
 .hovered {
-    background: blue;
+    background: rgb(94, 94, 99);
     border-style: dashed;
 }
 
