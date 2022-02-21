@@ -30,6 +30,11 @@ margin-left: 30px;
     justify-content: center;
 }
 
+#resetButton {
+    display: flex;
+    justify-content: center;
+}
+
 #imgContainer {
     background-image: url(../images/board.gif); 
     background-repeat: no-repeat;
@@ -38,37 +43,183 @@ margin-left: 30px;
     width: 600px;
     height: 600px;
     display: grid;
-    grid-template-rows: 13.5% 12% 12% 12% 12% 12% 12% 14.5%;
+    grid-template-rows: 13.25% 12% 12% 12% 12% 12% 12% 14.75%;
     grid-template-columns: 14% 12% 12% 12% 12% 12% 12% 14%;
 }
 
 
 /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
 #navyDump {
-    /* position: absolute; */
-    grid-area: 3 / 5 / 6 / 6;      
+    grid-area: 3 / 5 / 6 / 6; 
+    cursor: pointer;     
 }
 
 #purpleDump {
     grid-area: 3 / 2 / 6 / 3;
+    cursor: pointer;   
 }
 
 #tealDump {
     grid-area: 7 / 4 / 8 / 7;
+    cursor: pointer;   
 }
 
 #yellowDump {
-    grid-area: 2 / 7 / 6 / 8; 
+    grid-area: 2 / 7 / 6 / 8;
+    cursor: pointer;   
 }
 #greenCar {
     grid-area: 2 / 2 / 3 / 4;
+    cursor: pointer;   
 }
 #lightBlueCar {
     grid-area: 6 / 6 / 7 / 8;
+    cursor: pointer;   
 }
 #redCar {
     grid-area: 4 / 3 / 5 / 5;
+    cursor: pointer;   
 }
 #orangeCar {
     grid-area: 6 / 2 / 8 / 3;
+    cursor: pointer;   
+}
+
+#draggable {
+    grid-area: 2 / 2 / 8 / 8; 
+}
+
+.hold {
+    border: 2px solid gray;
+}
+
+.hovered {
+    background: blue;
+    border-style: dashed;
+}
+
+.invisible {
+    display: gray;
+}
+
+
+/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+/* ROW 1 */
+#r2c2 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+#r2c3 {
+    grid-area: 2 / 3 / 3 / 4;
+}
+#r2c4 {
+    grid-area: 2 / 4 / 3 / 5;
+}
+#r2c5 {
+    grid-area: 2 / 5 / 3 / 6;
+}
+#r2c6 {
+    grid-area: 2 / 6 / 3 / 7;
+}
+#r2c7 {
+    grid-area: 2 / 7 / 3 / 8;
+}
+
+/* ROW 2 */
+#r3c2 {
+    grid-area: 3 / 2 / 4 / 3;
+}
+#r3c3 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+#r3c4 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+#r3c5 {
+    grid-area: 3 / 5 / 4 / 6;
+}
+#r3c6 {
+    grid-area: 3 / 6 / 4 / 7;
+}
+#r3c7 {
+    grid-area: 3 / 7 / 4 / 8;
+}
+
+/* ROW 3 */
+#r4c2 {
+    grid-area: 4 / 2 / 5 / 3;
+}
+#r4c3 {
+    grid-area: 4 / 3 / 5 / 4;
+}
+#r4c4 {
+    grid-area: 4 / 4 / 5 / 5;
+}
+#r4c5 {
+    grid-area: 4 / 5 / 5 / 6;
+}
+#r4c6 {
+    grid-area: 4 / 6 / 5 / 7;
+}
+#r4c7 {
+    grid-area: 4 / 7 / 5 / 8;
+}
+
+/* ROW 4 */
+#r5c2 {
+    grid-area: 5 / 2 / 6 / 3;
+}
+#r5c3 {
+    grid-area: 5 / 3 / 6 / 4;
+}
+#r5c4 {
+    grid-area: 5 / 4 / 6 / 5;
+}
+#r5c5 {
+    grid-area: 5 / 5 / 6 / 6;
+}
+#r5c6 {
+    grid-area: 5 / 6 / 6 / 7;
+}
+#r5c7 {
+    grid-area: 5 / 7 / 6 / 8;
+}
+
+/* ROW 5 */
+#r6c2 {
+    grid-area: 6 / 2 / 7 / 3;
+}
+#r6c3 {
+    grid-area: 6 / 3 / 7 / 4;
+}
+#r6c4 {
+    grid-area: 6 / 4 / 7 / 5;
+}
+#r6c5 {
+    grid-area: 6 / 5 / 7 / 6;
+}
+#r6c6 {
+    grid-area: 6 / 6 / 7 / 7;
+}
+#r6c7 {
+    grid-area: 6 / 7 / 7 / 8;
+}
+
+/* ROW 6 */
+#r7c2 {
+    grid-area: 7 / 2 / 8 / 3;
+}
+#r7c3 {
+    grid-area: 7 / 3 / 8 / 4;
+}
+#r7c4 {
+    grid-area: 7 / 4 / 8 / 5;
+}
+#r7c5 {
+    grid-area: 7 / 5 / 8 / 6;
+}
+#r7c6 {
+    grid-area: 7 / 6 / 8 / 7;
+}
+#r7c7 {
+    grid-area: 7 / 7 / 8 / 8;
 }
