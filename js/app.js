@@ -3,8 +3,8 @@ const lightBlueCar = document.querySelector('#lightBlueCar')
 const navyDump = document.querySelector('#navyDump')
 const greenCar = document.querySelector('#greenCar')
 const orangeCar = document.querySelector('#orangeCar')
-const purpleDump = document.querySelector('purpleDump')
-const redCar = document.querySelector('redCar')
+const purpleDump = document.querySelector('#purpleDump')
+const redCar = document.querySelector('#redCar')
 const tealDump = document.querySelector('#tealDump')
 const yellowDump = document.querySelector('#yellowDump')
 const reset = document.querySelector('#reset')
@@ -13,22 +13,23 @@ const squares = document.querySelectorAll('.squares')
 let whichCar = ""
 const r2c4 = document.querySelector('#r2c4')
 let currentCar;
-
 document.addEventListener('DOMContentLoaded', (event) => {
     // Loop over empty boxes
     // const draggable = [r2c2, r2c3, r2c4, r2c5, r2c6, r2c7, r3c2, r3c3, r3c4, r3c5, r3c6, r3c7, r4c2, r4c3, r4c4, r4c5, r4c6, r4c7, r5c2, r5c3, r5c4, r5c5, r5c6, r5c7, r6c2, r6c3, r6c4, r6c5, r6c6, r6c7, r7c2, r7c3, r7c4, r7c5, r7c6, r7c7,]
+
+    // let empty = document.querySelector('#r2c4', "#r2c5", "#r2c6", "#r3c3", "#r3c4", "r#3c6", "#r4c6", "#r5c3", "#r5c4", "#r5c6", "#r5c7", "#r6c3", "#r6c4", "#r6c5", "#r7c3", "#r7c7")
     for (const empty of squares) {
         empty.addEventListener('dragover', dragOver);
         empty.addEventListener('dragenter', dragEnter);
         empty.addEventListener('dragleave', dragLeave);
         empty.addEventListener('drop', dragDrop);
+        console.log(empty);
     }
-
-    // lightBlueCar.addEventListener('dragstart', dragStart)
-    // lightBlueCar.addEventListener('dragend', dragEnd)
-    // lightBlueCar.addEventListener('mouseover', function () {
-    //     reset.style.color = 'black'
-
+    // ====================DRAGSTART===========================
+    redCar.addEventListener('dragstart', () => {
+        whichCar = redCar
+        dragStart()
+    })
     lightBlueCar.addEventListener('dragstart', () => {
         whichCar = lightBlueCar
         dragStart()
@@ -41,11 +42,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
         whichCar = yellowDump
         dragStart()
     })
-    // redCar.addEventListener('dragstart', () => {
-    //     whichCar = redCar
-    //     dragStart()
-    // })
-
+    greenCar.addEventListener('dragstart', () => {
+        whichCar = greenCar
+        dragStart()
+    })
+    orangeCar.addEventListener('dragstart', () => {
+        whichCar = orangeCar
+        dragStart()
+    })
+    purpleDump.addEventListener('dragstart', () => {
+        whichCar = purpleDump
+        dragStart()
+    })
+    tealDump.addEventListener('dragstart', () => {
+        whichCar = tealDump
+        dragStart()
+    })
+    // ===============DRAGEND=============================
+    redCar.addEventListener('dragend', () => {
+        dragEnd()
+    })
     navyDump.addEventListener('dragend', () => {
         dragEnd()
     })
@@ -56,20 +72,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     yellowDump.addEventListener('dragend', () => {
         dragEnd()
     })
-    // redCar.addEventListener('dragend', () => {
-    //     dragEnd()
-    // })
-
-    // allCars.forEach(function (e) {
-    //     for (let i = 0; i < allCars.length; i++) {
-    //         whichCar = allCars[i]
-    //         console.log("e", e)
-    //     }
-    //     whichCar.addEventListener('dragstart', dragStart)
-    //     whichCar.addEventListener('dragend', dragEnd)
-    // })
-    // console.log("second log", whichCar);
-    // on click, reset to whichCar
+    greenCar.addEventListener('dragend', () => {
+        dragEnd()
+    })
+    orangeCar.addEventListener('dragend', () => {
+        dragEnd()
+    })
+    purpleDump.addEventListener('dragend', () => {
+        dragEnd()
+    })
+    tealDump.addEventListener('dragend', () => {
+        dragEnd()
+    })
 
     function dragStart() {
         this.className += ' hold'
