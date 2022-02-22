@@ -8,15 +8,13 @@ body {
     justify-content: center;
 }
 
-#level {
-display: flex;
-justify-content: flex-start;
+#level, #whichLevel {
+float: left;
 margin-left: 30px;
 }
 
 #turns, #countMoves {
-    display: flex;
-    justify-content: flex-end;
+    float: right;
     margin-right: 30px;
 }
 
@@ -30,9 +28,10 @@ margin-left: 30px;
     justify-content: center;
 }
 
-#resetButton {
+#buttons {
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
 
 #imgContainer {
@@ -49,7 +48,7 @@ margin-left: 30px;
 
 
 /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-#navyDump {
+/* #navyDump {
     grid-area: 3 / 5 / 6 / 6; 
     cursor: pointer;     
 }
@@ -87,7 +86,7 @@ margin-left: 30px;
 
 #draggable {
     grid-area: 2 / 2 / 8 / 8; 
-}
+} */
 
 .hold {
     border: 2px solid gray;

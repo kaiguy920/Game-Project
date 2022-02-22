@@ -16,15 +16,55 @@ let currentCar;
 let count = 0;
 const r4c8 = document.querySelector('#r4c8')
 const countMoves = document.getElementById('countMoves')
+// ==========================LEVEL 1 BOARD========================
+// **maybe have the cars just displayed on the page, have a start button
+const getGreenCar = document.getElementById('greenCar')
+const getLightBlueCar = document.getElementById('lightBlueCar')
+const getNavyDump = document.getElementById('navyDump')
+const getOrangeCar = document.getElementById('orangeCar')
+const getPurpleDump = document.getElementById('purpleDump')
+const getRedCar = document.getElementById('redCar')
+const getTealDump = document.getElementById('#ealDump')
+const getYellowDump = document.getElementById('yellowDump')
+const r2c2 = document.getElementById('r2c2')
+const r3c2 = document.getElementById("r3c2")
+const r6c2 = document.getElementById("r6c2")
+const r4c3 = document.getElementById('r4c3')
+const r3c5 = document.getElementById('r3c5')
+const r2c7 = document.getElementById("r2c7")
+const r6c6 = document.getElementById("r6c6")
+const r7c4 = document.getElementById('r7c4')
 
+// document.getElementById('start').addEventListener('click', () => {
+//     r2c2.appendChild(greenCar)
+//     r3c2.appendChild(purpleDump)
+//     r6c2.appendChild(orangeCar)
+//     r4c3.appendChild(redCar)
+//     r3c5.appendChild(navyDump)
+//     r2c7.appendChild(yellowDump)
+//     r6c6.appendChild(lightBlueCar)
+//     r7c4.appendChild(tealDump)
+// })
 // =========================START=================================
 document.addEventListener('DOMContentLoaded', (event) => {
+    r2c2.appendChild(greenCar)
+    r3c2.appendChild(purpleDump)
+    r6c2.appendChild(orangeCar)
+    r4c3.appendChild(redCar)
+    r3c5.appendChild(navyDump)
+    r2c7.appendChild(yellowDump)
+    r6c6.appendChild(lightBlueCar)
+    r7c4.appendChild(tealDump)
+})
+
+document.getElementById('start').addEventListener('click', () => {
+
     for (const empty of squares) {
         empty.addEventListener('dragover', dragOver);
         empty.addEventListener('dragenter', dragEnter);
         empty.addEventListener('dragleave', dragLeave);
         empty.addEventListener('drop', dragDrop);
-        // console.log(empty);
+        console.log(empty);
     }
     // ====================DRAGSTART===========================
     redCar.addEventListener('dragstart', () => {
@@ -131,7 +171,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 //     if (r4c8.contains(redCar))
 //         document.append.winner.innerText = "You steared through that one!"
 // }
-// // console.log("win", win)
+
 
 // function detectWin() {
 //     if (redCar == document.body.imageContainer.r4c8) {
@@ -150,22 +190,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 //  ==================RESET==================================
-// const truckIt = () => {
-//     for (let i = 0; i < squares.length; i++) {
-//         squares[i].textContent = "";
-//     }
-//     Player1.style.border = ""
-//     Player2.style.border = ""
-//     winner.innerText = ""
-//     message.innerText = "Player One's Turn"
-//     currentPlayer = 1
-// }
-// reset.addEventListener('click', truckIt)
+document.getElementById('reset').addEventListener('click', () => {
+    r2c2.appendChild(greenCar)
+    r3c2.appendChild(purpleDump)
+    r6c2.appendChild(orangeCar)
+    r4c3.appendChild(redCar)
+    r3c5.appendChild(navyDump)
+    r2c7.appendChild(yellowDump)
+    r6c6.appendChild(lightBlueCar)
+    r7c4.appendChild(tealDump)
+    count = 0
+    document.getElementById("countMoves").innerText = count
+})
 
-// =======================LIMIT MOVES===========================
-const yellowDumpMoves = () => {
+    // =======================LIMIT MOVES===========================
+    // const yellowDumpMoves = () => {
 
-}
+    // }
 
 
 // =======================MOVE COUNT==============================
@@ -176,3 +217,4 @@ const yellowDumpMoves = () => {
 //         console.log("count", count)
 //     })
 // }
+
