@@ -10,6 +10,7 @@ const yellowDump = document.querySelector('#yellowDump')
 const reset = document.querySelector('#reset')
 const allCars = document.querySelectorAll('.cars')
 const squares = document.querySelectorAll('.squares')
+const draggable = document.querySelector('#draggable')
 let whichCar = ""
 const winner = document.querySelector('#winner')
 let currentCar;
@@ -30,6 +31,7 @@ const r2c2 = document.getElementById('r2c2')
 const r3c2 = document.getElementById("r3c2")
 const r6c2 = document.getElementById("r6c2")
 const r4c3 = document.getElementById('r4c3')
+const r4c4 = document.getElementById('r4c4')
 const r3c5 = document.getElementById('r3c5')
 const r2c7 = document.getElementById("r2c7")
 const r6c6 = document.getElementById("r6c6")
@@ -45,57 +47,89 @@ const r7c4 = document.getElementById('r7c4')
 //     r6c6.appendChild(lightBlueCar)
 //     r7c4.appendChild(tealDump)
 // })
+
 // =========================START=================================
 document.addEventListener('DOMContentLoaded', (event) => {
-    r2c2.appendChild(greenCar)
-    r3c2.appendChild(purpleDump)
-    r6c2.appendChild(orangeCar)
-    r4c3.appendChild(redCar)
-    r3c5.appendChild(navyDump)
-    r2c7.appendChild(yellowDump)
-    r6c6.appendChild(lightBlueCar)
-    r7c4.appendChild(tealDump)
-})
+    //     r2c2.appendChild(greenCar)
+    //     r3c2.appendChild(purpleDump)
+    //     r6c2.appendChild(orangeCar)
+    //     r4c3.appendChild(redCar)
+    //     r3c5.appendChild(navyDump)
+    //     r2c7.appendChild(yellowDump)
+    //     r6c6.appendChild(lightBlueCar)
+    //     r7c4.appendChild(tealDump)
+    // })
 
-document.getElementById('start').addEventListener('click', () => {
 
-    for (const empty of squares) {
-        empty.addEventListener('dragover', dragOver);
-        empty.addEventListener('dragenter', dragEnter);
-        empty.addEventListener('dragleave', dragLeave);
-        empty.addEventListener('drop', dragDrop);
-        console.log(empty);
-    }
+    document.getElementById('start').addEventListener('click', () => {
+
+
+        // const redCarMoves = () => {
+        //     if (r4c3.className === "filled")
+        //         return r4c4.className = "filled"
+        //     console.log(r4c4.className)
+        // }
+        // const emptySquaresAtStart = [r2c2, r2c3, r2c6, r3c3, r3c4, r3c6, r4c6, r4c8, r5c3, r5c4, r5c6, r5c7, r6c3, r6c4, r6c5, r7c3, r7c7] = () => {
+        //     emptySquaresAtStart.className = "empty"
+        for (const empty of squares) {
+            // redCarMoves()
+            empty.addEventListener('dragover', dragOver);
+            empty.addEventListener('dragenter', dragEnter);
+            empty.addEventListener('dragleave', dragLeave);
+            empty.addEventListener('drop', dragDrop);
+            // console.log(empty);
+        }
+    })
+
+    // const emptySquares = (div) => {
+    //     for (let i = 0; i < squares.length; i++) {
+    //         if (squares[i] == appendChild) {
+    //             div.addEventListener('dragover', dragOver);
+    //             div.addEventListener('dragenter', dragEnter);
+    //             div.addEventListener('dragleave', dragLeave);
+    //             div.addEventListener('drop', dragDrop);
+    //         }
+    //         console.log(emptySquares)
+    //     }
+    // }
     // ====================DRAGSTART===========================
     redCar.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = redCar
         dragStart()
     })
     lightBlueCar.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = lightBlueCar
         dragStart()
     })
     navyDump.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = navyDump
         dragStart()
     })
     yellowDump.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = yellowDump
         dragStart()
     })
     greenCar.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = greenCar
         dragStart()
     })
     orangeCar.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = orangeCar
         dragStart()
     })
     purpleDump.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = purpleDump
         dragStart()
     })
     tealDump.addEventListener('dragstart', () => {
+        this.className = 'filled'
         whichCar = tealDump
         dragStart()
     })
@@ -140,12 +174,14 @@ document.getElementById('start').addEventListener('click', () => {
 
     function dragOver(e) {
         e.preventDefault()
+        this.className += " hovered"
         console.log("over");
+
     }
 
     function dragEnter(e) {
         e.preventDefault()
-        this.className += " hovered"
+        // this.className += " hovered"
         console.log("enter");
     }
 
@@ -155,12 +191,17 @@ document.getElementById('start').addEventListener('click', () => {
     }
 
     function dragDrop() {
-        this.className = 'empty'
-        this.append(whichCar)
-        console.log('drop')
+        if (this.className === 'filled') {
+            return dragStart()
+        } else {
+            this.className = 'filled'
+            this.append(whichCar)
+            console.log('drop')
+        }
         count += 1
         console.log("count", count)
         document.getElementById("countMoves").innerText = count
+        console.log(this);
         // detectWin()
     }
 })
@@ -203,10 +244,11 @@ document.getElementById('reset').addEventListener('click', () => {
     document.getElementById("countMoves").innerText = count
 })
 
-    // =======================LIMIT MOVES===========================
-    // const yellowDumpMoves = () => {
-
-    // }
+// =======================LIMIT MOVES===========================
+// const yellowDumpMoves = () => {
+//     if (r1c7.className === "filled")
+//         return r2c7.className && r3c7.className === "filled"
+// }
 
 
 // =======================MOVE COUNT==============================
