@@ -52,7 +52,6 @@ const getRedCarSpan = document.querySelector('#redCarSpan')
 const getTealDumpSpan = document.querySelector('#tealDumpSpan')
 const getYellowDumpSpan = document.querySelector('#yellowDumpSpan')
 
-console.log(getYellowDumpSpan, getGreenCarSpan)
 
 // document.getElementById('start').addEventListener('click', () => {
 //     r2c2.appendChild(greenCar)
@@ -67,17 +66,28 @@ console.log(getYellowDumpSpan, getGreenCarSpan)
 
 // =========================START=================================
 document.addEventListener('DOMContentLoaded', (event) => {
-    r2c2.appendChild(getGreenCar)
-    r3c2.appendChild(getPurpleDump)
-    r6c2.appendChild(getOrangeCar)
-    r4c3.appendChild(getRedCar)
-    r3c5.appendChild(getNavyDump)
-    r2c7.appendChild(getYellowDump)
-    r6c6.appendChild(getLightBlueCar)
-    r7c4.appendChild(getTealDump)
+    r2c2.appendChild(getGreenCarSpan)
+    r3c2.appendChild(getPurpleDumpSpan)
+    r6c2.appendChild(getOrangeCarSpan)
+    r4c3.appendChild(getRedCarSpan)
+    r3c5.appendChild(getNavyDumpSpan)
+    r2c7.appendChild(getYellowDumpSpan)
+    r6c6.appendChild(getLightBlueCarSpan)
+    r7c4.appendChild(getTealDumpSpan)
 })
 
+console.log("green car span", getGreenCarSpan)
+parentNode.append()
 
+// const greenSpace = () => {
+//     for (let i = 0; i < squares.length; i++) {
+//         if (squares[i].lastElementChild === "span#greenCarSpan.filled") {
+//             squares[i++] = "span#greenCarSpan.filled"
+//         }
+//     }
+// }
+
+// console.log(squares)
 document.getElementById('start').addEventListener('click', () => {
 
 
@@ -98,22 +108,11 @@ document.getElementById('start').addEventListener('click', () => {
     }
 
 
-    // const emptySquares = () => {
-    //     for (let i = 0; i < squares.length; i++) {
-    //         if (squares[i].className !== "filled") {
-    //             squares[i].addEventListener('dragover', dragOver);
-    //             squares[i].addEventListener('dragenter', dragEnter);
-    //             squares[i].addEventListener('dragleave', dragLeave);
-    //             squares[i].addEventListener('drop', dragDrop);
-    //         }
-    //     }
-    // }
     // ====================DRAGSTART===========================
     getRedCarSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
         whichCar = getRedCarSpan
         dragStart()
-        console.log("hellooo", empty);
     })
     getLightBlueCarSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
@@ -192,7 +191,7 @@ document.getElementById('start').addEventListener('click', () => {
     function dragOver(e) {
         e.preventDefault()
         this.className += " hovered"
-        console.log("over");
+        // console.log("over");
 
     }
 
@@ -208,13 +207,14 @@ document.getElementById('start').addEventListener('click', () => {
     }
     // ==============================DRAGDROP===============================================
 
-    // getRedCarSpan.addEventListener('dragdrop', () => {
-    //     if (getRedCarSpan.document.dragDrop(r4c8)) {
-    //         console.log("you win!!")
-    //     } else {
-    //         dragDrop()
-    //     }
-    // })
+    getRedCarSpan.addEventListener('dragdrop', () => {
+        if (getRedCarSpan.document.dragDrop(r4c8)) {
+            console.log("you win!!")
+            console.log("what the what", getRedCarSpan.document.dragDrop(r4c8))
+        } else {
+            dragDrop()
+        }
+    })
     // getNavyDumpSpan.addEventListener('dragdrop', () => {
     //     dragDrop()
     // })
@@ -242,15 +242,12 @@ document.getElementById('start').addEventListener('click', () => {
             return dragStart()
         } else {
             this.className = 'filled'
-            this.classList.remove("empty")
             this.append(whichCar)
             console.log('drop')
         }
         count += 1
-        console.log("count", count)
+        console.log("dragDrop function", dragDrop())
         document.getElementById("countMoves").innerText = count
-        console.log(this);
-        // detectWin()
     }
 })
 
@@ -280,14 +277,14 @@ document.getElementById('start').addEventListener('click', () => {
 
 //  ==================RESET==================================
 document.getElementById('reset').addEventListener('click', () => {
-    r2c2.appendChild(getGreenCar)
-    r3c2.appendChild(getPurpleDump)
-    r6c2.appendChild(getOrangeCar)
-    r4c3.appendChild(getRedCar)
-    r3c5.appendChild(getNavyDump)
-    r2c7.appendChild(getYellowDump)
-    r6c6.appendChild(getLightBlueCar)
-    r7c4.appendChild(getTealDump)
+    r2c2.appendChild(getGreenCarSpan)
+    r3c2.appendChild(getPurpleDumpSpan)
+    r6c2.appendChild(getOrangeCarSpan)
+    r4c3.appendChild(getRedCarSpan)
+    r3c5.appendChild(getNavyDumpSpan)
+    r2c7.appendChild(getYellowDumpSpan)
+    r6c6.appendChild(getLightBlueCarSpan)
+    r7c4.appendChild(getTealDumpSpan)
     count = 0
     document.getElementById("countMoves").innerText = count
 })
@@ -308,3 +305,16 @@ document.getElementById('reset').addEventListener('click', () => {
 //     })
 // }
 
+reset.addEventListener('mouseover', function () {
+    reset.style.color = 'gray';
+})
+reset.addEventListener('mouseout', function () {
+    reset.style.color = 'white';
+})
+
+start.addEventListener('mouseover', function () {
+    start.style.color = 'gray';
+})
+start.addEventListener('mouseout', function () {
+    start.style.color = 'white';
+})

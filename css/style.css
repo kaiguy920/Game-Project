@@ -1,11 +1,19 @@
 body {
     background-color: blueviolet;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
 
 #header {
     display: flex;
     justify-content: center;
+    font-size: 40px;
+    -webkit-text-stroke: 1px black;
+	-webkit-text-fill-color: white
+}
+
+#headerContainer {
+    font-size: 30px;
 }
 
 #level, #whichLevel {
@@ -18,20 +26,37 @@ margin-left: 30px;
     margin-right: 30px;
 }
 
+#instrContainer {
+    padding-top: 20px;
+}
 #instructions {
     display: flex;
     justify-content: center;
+   font-size: 30px;
 }
 
 #instructDets {
     display: flex;
     justify-content: center;
+    font-size: 20px;
+    background: white;
 }
 
 #buttons {
     display: flex;
     justify-content: center;
     padding: 10px;
+ 
+}
+
+#start, #reset {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    background-color: black;
+    color: white;
+    border: 2px solid gray;
+    font-size: 15px;
+    margin-left:10px;
+    margin-right: 10px;
 }
 
 #imgContainer {
@@ -44,11 +69,13 @@ margin-left: 30px;
     display: grid;
     grid-template-rows: 13.25% 12% 12% 12% 12% 12% 12% 14.75%;
     grid-template-columns: 14% 12% 12% 12% 12% 12% 12% 14%;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* 
-#navyDumpSpan {
+/* #navyDumpSpan {
     background-image: url(../images/navyDump.gif);
-} */
+} */ 
 /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
 /* #navyDump {
     grid-area: 3 / 5 / 6 / 6; 
@@ -247,33 +274,48 @@ margin-left: 30px;
 grid-area: 5 / 8 / 9 / 9;
 }
 
-#greenCarStart {
-    grid-area: 2 / 2 / 3 / 4;
-}
 
-#redCarStart {
-    grid-area: 4 / 3 / 5 / 5;
+#navyDumpSpan{
+    grid-area: 3 / 5 / 6 / 6; 
 }
-
-#tealDumpStart {
+#tealDumpSpan {
     grid-area: 7 / 4 / 8 / 7;
+    cursor: pointer;   
 }
 
-#lightBlueCarStart{
+#yellowDumpSpan {
+    grid-area: 2 / 7 / 6 / 8;
+    cursor: pointer;   
+}
+#greenCarSpan {
+    grid-area: 2 / 2 / 3 / 4;
+    cursor: pointer;   
+}
+#lightBlueCarSpan {
     grid-area: 6 / 6 / 7 / 8;
+    cursor: pointer;   
 }
-
+#redCarSpan {
+    grid-area: 4 / 3 / 5 / 5;
+    cursor: pointer;   
+}
+#orangeCarSpan {
+    grid-area: 6 / 2 / 8 / 3;
+    cursor: pointer;   
+}
 .cars { 
     z-index: 100;
 }
-
+.filled {
+    z-index: 200;
+}
 
 #winner {
     position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-     font-family: 'Permanent Marker', cursive;
+     font-family: 'ZCOOL QingKe HuangYou', cursive;
      color: green;
      background: rgba(255, 255, 255, 0.9);
      font-size: 40px;
