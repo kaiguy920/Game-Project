@@ -17,6 +17,11 @@ let currentCar;
 let count = 0;
 const r4c8 = document.querySelector('#r4c8')
 const countMoves = document.getElementById('countMoves')
+const topOut = document.querySelector('#topOut')
+const bottomOut = document.querySelector('#bottomOut')
+const leftOut = document.querySelector('#leftOut')
+const rightOutTop = document.querySelector('#rightOutTop')
+const rightOutBottom = document.querySelector('#leftOut')
 // ==========================LEVEL 1 BOARD========================
 // **maybe have the cars just displayed on the page, have a start button
 const getGreenCar = document.getElementById('greenCar')
@@ -27,6 +32,7 @@ const getPurpleDump = document.getElementById('purpleDump')
 const getRedCar = document.getElementById('redCar')
 const getTealDump = document.getElementById('#ealDump')
 const getYellowDump = document.getElementById('yellowDump')
+const getGreenCarSpan = document.querySelector('#greenCarSpan')
 const r2c2 = document.getElementById('r2c2')
 const r3c2 = document.getElementById("r3c2")
 const r6c2 = document.getElementById("r6c2")
@@ -36,6 +42,7 @@ const r3c5 = document.getElementById('r3c5')
 const r2c7 = document.getElementById("r2c7")
 const r6c6 = document.getElementById("r6c6")
 const r7c4 = document.getElementById('r7c4')
+const greenCarStart = document.getElementById('greenCarStart')
 
 // document.getElementById('start').addEventListener('click', () => {
 //     r2c2.appendChild(greenCar)
@@ -50,46 +57,45 @@ const r7c4 = document.getElementById('r7c4')
 
 // =========================START=================================
 document.addEventListener('DOMContentLoaded', (event) => {
-    //     r2c2.appendChild(greenCar)
-    //     r3c2.appendChild(purpleDump)
-    //     r6c2.appendChild(orangeCar)
-    //     r4c3.appendChild(redCar)
-    //     r3c5.appendChild(navyDump)
-    //     r2c7.appendChild(yellowDump)
-    //     r6c6.appendChild(lightBlueCar)
-    //     r7c4.appendChild(tealDump)
-    // })
+    r2c2.appendChild(getGreenCarSpan)
+    r3c2.appendChild(purpleDump)
+    r6c2.appendChild(orangeCar)
+    r4c3.appendChild(redCar)
+    r3c5.appendChild(navyDump)
+    r2c7.appendChild(yellowDump)
+    r6c6.appendChild(lightBlueCar)
+    r7c4.appendChild(tealDump)
+})
 
 
-    document.getElementById('start').addEventListener('click', () => {
+document.getElementById('start').addEventListener('click', () => {
 
 
-        // const redCarMoves = () => {
-        //     if (r4c3.className === "filled")
-        //         return r4c4.className = "filled"
-        //     console.log(r4c4.className)
-        // }
-        // const emptySquaresAtStart = [r2c2, r2c3, r2c6, r3c3, r3c4, r3c6, r4c6, r4c8, r5c3, r5c4, r5c6, r5c7, r6c3, r6c4, r6c5, r7c3, r7c7] = () => {
-        //     emptySquaresAtStart.className = "empty"
-        for (const empty of squares) {
-            // redCarMoves()
-            empty.addEventListener('dragover', dragOver);
-            empty.addEventListener('dragenter', dragEnter);
-            empty.addEventListener('dragleave', dragLeave);
-            empty.addEventListener('drop', dragDrop);
-            // console.log(empty);
-        }
-    })
+    // const redCarMoves = () => {
+    //     if (r4c3.className === "filled")
+    //         return r4c4.className = "filled"
+    //     console.log(r4c4.className)
+    // }
+    // const emptySquaresAtStart = [r2c2, r2c3, r2c6, r3c3, r3c4, r3c6, r4c6, r4c8, r5c3, r5c4, r5c6, r5c7, r6c3, r6c4, r6c5, r7c3, r7c7] = () => {
+    //     emptySquaresAtStart.className = "empty"
+    // ===================ASSIGNING "EMPTY SQUARES"=========================
+    for (const empty of squares) {
+        empty.addEventListener('dragover', dragOver);
+        empty.addEventListener('dragenter', dragEnter);
+        empty.addEventListener('dragleave', dragLeave);
+        empty.addEventListener('drop', dragDrop);
+        // console.log("empty the first", empty);
+    }
 
-    // const emptySquares = (div) => {
+
+    // const emptySquares = () => {
     //     for (let i = 0; i < squares.length; i++) {
-    //         if (squares[i] == appendChild) {
-    //             div.addEventListener('dragover', dragOver);
-    //             div.addEventListener('dragenter', dragEnter);
-    //             div.addEventListener('dragleave', dragLeave);
-    //             div.addEventListener('drop', dragDrop);
+    //         if (squares[i].className !== "filled") {
+    //             squares[i].addEventListener('dragover', dragOver);
+    //             squares[i].addEventListener('dragenter', dragEnter);
+    //             squares[i].addEventListener('dragleave', dragLeave);
+    //             squares[i].addEventListener('drop', dragDrop);
     //         }
-    //         console.log(emptySquares)
     //     }
     // }
     // ====================DRAGSTART===========================
@@ -97,6 +103,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         this.className = 'filled'
         whichCar = redCar
         dragStart()
+        console.log("hellooo", empty);
     })
     lightBlueCar.addEventListener('dragstart', () => {
         this.className = 'filled'
@@ -195,6 +202,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             return dragStart()
         } else {
             this.className = 'filled'
+            this.classList.remove("empty")
             this.append(whichCar)
             console.log('drop')
         }

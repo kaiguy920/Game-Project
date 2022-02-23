@@ -48,7 +48,7 @@ margin-left: 30px;
 
 
 /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-#navyDump {
+/* #navyDump {
     grid-area: 3 / 5 / 6 / 6; 
     cursor: pointer;     
 }
@@ -82,7 +82,7 @@ margin-left: 30px;
 #orangeCar {
     grid-area: 6 / 2 / 8 / 3;
     cursor: pointer;   
-}
+} */
 
 #draggable {
     grid-area: 2 / 2 / 8 / 8; 
@@ -243,6 +243,14 @@ margin-left: 30px;
 }
 #rightOutBottom {
 grid-area: 5 / 8 / 9 / 9;
+}
+
+#greenCarStart {
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+#purpleDumpStart {
+    grid-area: 3 / 2 / 6 / 3
 }
 
 .cars { 
