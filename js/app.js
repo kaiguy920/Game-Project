@@ -30,9 +30,8 @@ const getNavyDump = document.getElementById('navyDump')
 const getOrangeCar = document.getElementById('orangeCar')
 const getPurpleDump = document.getElementById('purpleDump')
 const getRedCar = document.getElementById('redCar')
-const getTealDump = document.getElementById('#ealDump')
+const getTealDump = document.getElementById('tealDump')
 const getYellowDump = document.getElementById('yellowDump')
-const getGreenCarSpan = document.querySelector('#greenCarSpan')
 const r2c2 = document.getElementById('r2c2')
 const r3c2 = document.getElementById("r3c2")
 const r6c2 = document.getElementById("r6c2")
@@ -43,6 +42,17 @@ const r2c7 = document.getElementById("r2c7")
 const r6c6 = document.getElementById("r6c6")
 const r7c4 = document.getElementById('r7c4')
 const greenCarStart = document.getElementById('greenCarStart')
+// =============================SPAN==================================
+const getGreenCarSpan = document.querySelector('#greenCarSpan')
+const getLightBlueCarSpan = document.querySelector('#lightBlueCarSpan')
+const getNavyDumpSpan = document.querySelector('#navyDumpSpan')
+const getOrangeCarSpan = document.querySelector('#orangeCarSpan')
+const getPurpleDumpSpan = document.querySelector('#purpleDumpSpan')
+const getRedCarSpan = document.querySelector('#redCarSpan')
+const getTealDumpSpan = document.querySelector('#tealDumpSpan')
+const getYellowDumpSpan = document.querySelector('#yellowDumpSpan')
+
+console.log(getYellowDumpSpan, getGreenCarSpan)
 
 // document.getElementById('start').addEventListener('click', () => {
 //     r2c2.appendChild(greenCar)
@@ -57,14 +67,14 @@ const greenCarStart = document.getElementById('greenCarStart')
 
 // =========================START=================================
 document.addEventListener('DOMContentLoaded', (event) => {
-    r2c2.appendChild(getGreenCarSpan)
-    r3c2.appendChild(purpleDump)
-    r6c2.appendChild(orangeCar)
-    r4c3.appendChild(redCar)
-    r3c5.appendChild(navyDump)
-    r2c7.appendChild(yellowDump)
-    r6c6.appendChild(lightBlueCar)
-    r7c4.appendChild(tealDump)
+    r2c2.appendChild(getGreenCar)
+    r3c2.appendChild(getPurpleDump)
+    r6c2.appendChild(getOrangeCar)
+    r4c3.appendChild(getRedCar)
+    r3c5.appendChild(getNavyDump)
+    r2c7.appendChild(getYellowDump)
+    r6c6.appendChild(getLightBlueCar)
+    r7c4.appendChild(getTealDump)
 })
 
 
@@ -99,71 +109,71 @@ document.getElementById('start').addEventListener('click', () => {
     //     }
     // }
     // ====================DRAGSTART===========================
-    redCar.addEventListener('dragstart', () => {
+    getRedCarSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = redCar
+        whichCar = getRedCarSpan
         dragStart()
         console.log("hellooo", empty);
     })
-    lightBlueCar.addEventListener('dragstart', () => {
+    getLightBlueCarSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = lightBlueCar
+        whichCar = getLightBlueCarSpan
         dragStart()
     })
-    navyDump.addEventListener('dragstart', () => {
+    getNavyDumpSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = navyDump
+        whichCar = getNavyDumpSpan
         dragStart()
     })
-    yellowDump.addEventListener('dragstart', () => {
+    getYellowDumpSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = yellowDump
+        whichCar = getYellowDumpSpan
         dragStart()
     })
-    greenCar.addEventListener('dragstart', () => {
+    getGreenCarSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = greenCar
+        whichCar = getGreenCarSpan
         dragStart()
     })
-    orangeCar.addEventListener('dragstart', () => {
+    getOrangeCarSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = orangeCar
+        whichCar = getOrangeCarSpan
         dragStart()
     })
-    purpleDump.addEventListener('dragstart', () => {
+    getPurpleDumpSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = purpleDump
+        whichCar = getPurpleDumpSpan
         dragStart()
     })
-    tealDump.addEventListener('dragstart', () => {
+    getTealDumpSpan.addEventListener('dragstart', () => {
         this.className = 'filled'
-        whichCar = tealDump
+        whichCar = getTealDumpSpan
         dragStart()
     })
     // ===============DRAGEND=============================
-    redCar.addEventListener('dragend', () => {
+    getRedCarSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-    navyDump.addEventListener('dragend', () => {
+    getNavyDumpSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-    lightBlueCar.addEventListener('dragend', () => {
+    getLightBlueCarSpan.addEventListener('dragend', () => {
         dragEnd()
     })
 
-    yellowDump.addEventListener('dragend', () => {
+    getYellowDumpSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-    greenCar.addEventListener('dragend', () => {
+    getGreenCarSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-    orangeCar.addEventListener('dragend', () => {
+    getOrangeCarSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-    purpleDump.addEventListener('dragend', () => {
+    getPurpleDumpSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-    tealDump.addEventListener('dragend', () => {
+    getTealDumpSpan.addEventListener('dragend', () => {
         dragEnd()
     })
 
@@ -196,7 +206,37 @@ document.getElementById('start').addEventListener('click', () => {
         this.className = 'empty'
         console.log('leave');
     }
+    // ==============================DRAGDROP===============================================
 
+    // getRedCarSpan.addEventListener('dragdrop', () => {
+    //     if (getRedCarSpan.document.dragDrop(r4c8)) {
+    //         console.log("you win!!")
+    //     } else {
+    //         dragDrop()
+    //     }
+    // })
+    // getNavyDumpSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
+    // getLightBlueCarSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
+
+    // getYellowDumpSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
+    // getGreenCarSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
+    // getOrangeCarSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
+    // getPurpleDumpSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
+    // getTealDumpSpan.addEventListener('dragdrop', () => {
+    //     dragDrop()
+    // })
     function dragDrop() {
         if (this.className === 'filled') {
             return dragStart()
@@ -240,23 +280,23 @@ document.getElementById('start').addEventListener('click', () => {
 
 //  ==================RESET==================================
 document.getElementById('reset').addEventListener('click', () => {
-    r2c2.appendChild(greenCar)
-    r3c2.appendChild(purpleDump)
-    r6c2.appendChild(orangeCar)
-    r4c3.appendChild(redCar)
-    r3c5.appendChild(navyDump)
-    r2c7.appendChild(yellowDump)
-    r6c6.appendChild(lightBlueCar)
-    r7c4.appendChild(tealDump)
+    r2c2.appendChild(getGreenCar)
+    r3c2.appendChild(getPurpleDump)
+    r6c2.appendChild(getOrangeCar)
+    r4c3.appendChild(getRedCar)
+    r3c5.appendChild(getNavyDump)
+    r2c7.appendChild(getYellowDump)
+    r6c6.appendChild(getLightBlueCar)
+    r7c4.appendChild(getTealDump)
     count = 0
     document.getElementById("countMoves").innerText = count
 })
 
 // =======================LIMIT MOVES===========================
 // const yellowDumpMoves = () => {
-//     if (r1c7.className === "filled")
-//         return r2c7.className && r3c7.className === "filled"
-// }
+//     // can only play on column 7, between row 2-5
+//     if (getYellowDumpSpan)
+
 
 
 // =======================MOVE COUNT==============================

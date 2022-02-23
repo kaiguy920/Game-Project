@@ -45,8 +45,10 @@ margin-left: 30px;
     grid-template-rows: 13.25% 12% 12% 12% 12% 12% 12% 14.75%;
     grid-template-columns: 14% 12% 12% 12% 12% 12% 12% 14%;
 }
-
-
+/* 
+#navyDumpSpan {
+    background-image: url(../images/navyDump.gif);
+} */
 /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
 /* #navyDump {
     grid-area: 3 / 5 / 6 / 6; 
@@ -249,8 +251,16 @@ grid-area: 5 / 8 / 9 / 9;
     grid-area: 2 / 2 / 3 / 4;
 }
 
-#purpleDumpStart {
-    grid-area: 3 / 2 / 6 / 3
+#redCarStart {
+    grid-area: 4 / 3 / 5 / 5;
+}
+
+#tealDumpStart {
+    grid-area: 7 / 4 / 8 / 7;
+}
+
+#lightBlueCarStart{
+    grid-area: 6 / 6 / 7 / 8;
 }
 
 .cars { 
