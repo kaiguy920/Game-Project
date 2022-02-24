@@ -326,4 +326,5 @@ grid-area: 5 / 8 / 9 / 9;
      padding: 50px 0;
      align-content: center;
      text-align: center;
+     z-index: 201;
  }

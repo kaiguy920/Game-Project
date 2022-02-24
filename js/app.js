@@ -23,7 +23,6 @@ const leftOut = document.querySelector('#leftOut')
 const rightOutTop = document.querySelector('#rightOutTop')
 const rightOutBottom = document.querySelector('#leftOut')
 // ==========================LEVEL 1 BOARD========================
-// **maybe have the cars just displayed on the page, have a start button
 const getGreenCar = document.getElementById('greenCar')
 const getLightBlueCar = document.getElementById('lightBlueCar')
 const getNavyDump = document.getElementById('navyDump')
@@ -90,14 +89,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // console.log(squares)
 document.getElementById('start').addEventListener('click', () => {
 
-
-    // const redCarMoves = () => {
-    //     if (r4c3.className === "filled")
-    //         return r4c4.className = "filled"
-    //     console.log(r4c4.className)
-    // }
-    // const emptySquaresAtStart = [r2c2, r2c3, r2c6, r3c3, r3c4, r3c6, r4c6, r4c8, r5c3, r5c4, r5c6, r5c7, r6c3, r6c4, r6c5, r7c3, r7c7] = () => {
-    //     emptySquaresAtStart.className = "empty"
     // ===================ASSIGNING "EMPTY SQUARES"=========================
     for (const empty of squares) {
         empty.addEventListener('dragover', dragOver);
@@ -152,7 +143,7 @@ document.getElementById('start').addEventListener('click', () => {
     // ===============DRAGEND=============================
     getRedCarSpan.addEventListener('dragend', () => {
         if (r4c8.contains(getRedCarSpan)) {
-            console.log("winner!!")
+            // console.log("winner!!")
             winner.innerText = "You steared through that one! \n 🏁 🚗 🎉"
         }
         dragEnd()
@@ -220,10 +211,12 @@ document.getElementById('start').addEventListener('click', () => {
         if (isSquareFilled(this.id)) {
             this.className += " nogo"
         }
+
+        // greenCarSquares()
+        purpleDumpSquares()
         e.preventDefault()
         // this.className += " hovered"
         // console.log("over");
-
     }
 
     function dragEnter(e) {
@@ -238,7 +231,7 @@ document.getElementById('start').addEventListener('click', () => {
         console.log('leave');
     }
 
-
+    allCars.className = 'empty'
 
 
 
@@ -264,28 +257,7 @@ document.getElementById('start').addEventListener('click', () => {
     //         dragDrop()
     //     }
     // })
-    // getNavyDumpSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
-    // getLightBlueCarSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
 
-    // getYellowDumpSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
-    // getGreenCarSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
-    // getOrangeCarSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
-    // getPurpleDumpSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
-    // getTealDumpSpan.addEventListener('dragdrop', () => {
-    //     dragDrop()
-    // })
     function dragDrop() {
         // console.log('hit', isSquareFilled(this.id))
         // if (isMoveValid(this.id)) {
@@ -303,6 +275,9 @@ document.getElementById('start').addEventListener('click', () => {
         // console.log("dragDrop function", dragDrop())
         document.getElementById("countMoves").innerText = count
     }
+
+    // =======================LIMIT MOVES===========================
+
 
     function isMoveValid(id) {
         // console.log("ismovevalid", id)
@@ -341,42 +316,59 @@ document.getElementById('start').addEventListener('click', () => {
     }
 })
 
+console.log("purpDump info", getPurpleDumpSpan)
 
 
 function isSquareFilled(id) {
-    // console.log("id", id)
     const square = document.getElementById(id)
+    // console.log("id", id)
     // console.log('square', square)
-    // Todo add all cars here:
-    if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
+    if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan) || square.contains(getOrangeCarSpan) || square.contains(getRedCarSpan) || square.contains(getLightBlueCarSpan) || square.contains(getOrangeCarSpan)) {
         true
     } else {
         false
     }
 }
 
-// ==================DETECT WIN=================================
+const greenCarSquares = () => {
+    if (r2c2.contains(getGreenCarSpan)) {
+        r2c3.id = " nogo"
+    } else if
+        (r2c3.contains(getGreenCarSpan)) {
+        r2c4.id = " nogo"
+    } else if
+        (r2c4.contains(getGreenCarSpan)) {
+        r2c5.id = " nogo"
+    } else if
+        (r2c5.contains(getGreenCarSpan)) {
+        r2c5.id = " nogo"
+    } else if
+        (r2c6.contains(getGreenCarSpan)) {
+        r2c7.id = " nogo"
+    }
+}
 
-// const win = () => {
-//     if (r4c8.contains(redCar))
-//         document.append.winner.innerText = "You steared through that one!"
-// }
+const purpleDumpSquares = () => {
+    if (r3c2.contains(getPurpleDumpSpan)) {
+        r4c2.className = " nogo"
+        r5c2.className = " nogo"
+    } else if
+        (r2c2.contains(getPurpleDumpSpan)) {
+        r3c2.className = " nogo"
+        r4c2.className = " nogo"
+    } else if
+        (r4c2.contains(getPurpleDumpSpan)) {
+        r5c2.className = " nogo"
+        r6c2.className = " nogo"
+    } else if
+        (r5c2.contains(getPurpleDumpSpan)) {
+        r6c2.className = " nogo"
+        r7c2.className = " nogo"
+    }
+}
 
+// ==================RESET=================================
 
-// function detectWin() {
-//     if (redCar == document.body.imageContainer.r4c8) {
-//         // winner.innerText = "You steared through that one!"
-//         alert("You did it!!")
-//     }
-// }
-
-
-// add event listener to r4c8
-// document.addEventListener('drop', function () {
-//     if (redCar.target.classId == r4c8) {
-//         winner.innerText = "You steared through that one!"
-//     }
-// })
 const resetBoard = () => {
     r2c2.appendChild(getGreenCarSpan)
     r3c2.appendChild(getPurpleDumpSpan)
@@ -390,26 +382,12 @@ const resetBoard = () => {
     document.getElementById("countMoves").innerText = count
     winner.innerText = ""
 }
-//  ==================RESET==================================
+//  ==================RESET BUTTON==================================
 document.getElementById('reset').addEventListener('click', () => {
     resetBoard()
 })
 
-// =======================LIMIT MOVES===========================
-// const yellowDumpMoves = () => {
-//     // can only play on column 7, between row 2-5
-//     if (getYellowDumpSpan)
-
-
-
-// =======================MOVE COUNT==============================
-// let count = 0
-// const moveCount = () => {
-//     whichCar.addEventListener("drop", function () {
-//         count += 1;
-//         console.log("count", count)
-//     })
-// }
+// =======================BUTTON STYLE==============================
 
 reset.addEventListener('mouseover', function () {
     reset.style.color = 'gray';
