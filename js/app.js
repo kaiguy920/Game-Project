@@ -51,18 +51,6 @@ const getRedCarSpan = document.querySelector('#redCarSpan')
 const getTealDumpSpan = document.querySelector('#tealDumpSpan')
 const getYellowDumpSpan = document.querySelector('#yellowDumpSpan')
 
-
-// document.getElementById('start').addEventListener('click', () => {
-//     r2c2.appendChild(greenCar)
-//     r3c2.appendChild(purpleDump)
-//     r6c2.appendChild(orangeCar)
-//     r4c3.appendChild(redCar)
-//     r3c5.appendChild(navyDump)
-//     r2c7.appendChild(yellowDump)
-//     r6c6.appendChild(lightBlueCar)
-//     r7c4.appendChild(tealDump)
-// })
-
 // =========================START=================================
 document.addEventListener('DOMContentLoaded', (event) => {
     r2c2.appendChild(getGreenCarSpan)
@@ -75,17 +63,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     r7c4.appendChild(getTealDumpSpan)
 })
 
-// console.log("green car span", getGreenCarSpan)
-// getGreenCarSpan.parentNode.append("div.#r2c3.squares")
-
-// const greenSpace = () => {
-//     for (let i = 0; i < squares.length; i++) {
-//         if (squares[i].lastElementChild === "span#greenCarSpan.filled") {
-//             squares[i++] = "span#greenCarSpan.filled"
-//         }
-//     }
-// }
-
 // console.log(squares)
 document.getElementById('start').addEventListener('click', () => {
 
@@ -97,7 +74,6 @@ document.getElementById('start').addEventListener('click', () => {
         empty.addEventListener('drop', dragDrop);
         // console.log("empty the first", empty);
     }
-
 
     // ====================DRAGSTART===========================
     getRedCarSpan.addEventListener('dragstart', () => {
@@ -170,28 +146,7 @@ document.getElementById('start').addEventListener('click', () => {
     getTealDumpSpan.addEventListener('dragend', () => {
         dragEnd()
     })
-
-    // getTealDumpSpan.addEventListener('dragenter', (e) => {
-    //     // e.preventDefault()
-    //     //     // this.className += " hovered"
-    //     console.log('hit this bitch', e)
-    //     const square = document.getElementById(this.id)
-    //     // console.log('here::::', square.contains(getYellowDumpSpan))
-    //     // // Once you limit the travel to be horizontal or vertical then you know you only need to check the square for the specific cars it can run into.
-
-    //     // // if green car, red car - does square contain yellowdump, bluedump, or purpledump.
-    //     // if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
-
-    //     // }
-
-    //     // // if glue car - does square contains yellowdump, bluedump, purpledump, or orange car.
-    //     if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
-    //         console.log('here!@#$T$')
-    //     } else {
-    //         dragDrop()
-    //     }
-    // })
-
+    // ============================DRAG FUNCTIONS=============================
     function dragStart() {
         this.className += ' hold'
         setTimeout(() => this.className = 'invisible', 0)
@@ -237,37 +192,9 @@ document.getElementById('start').addEventListener('click', () => {
 
     // ==============================DRAGDROP===============================================
 
-    // getRedCarSpan.addEventListener('dragdrop', () => {
-    //     // e.preventDefault()
-    //     //     // this.className += " hovered"
-    //     console.log('hit this bitch', e)
-    //     const square = document.getElementById(this.id)
-    //     // console.log('here::::', square.contains(getYellowDumpSpan))
-    //     // // Once you limit the travel to be horizontal or vertical then you know you only need to check the square for the specific cars it can run into.
-
-    //     // // if green car, red car - does square contain yellowdump, bluedump, or purpledump.
-    //     // if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
-
-    //     // }
-
-    //     // // if glue car - does square contains yellowdump, bluedump, purpledump, or orange car.
-    //     if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
-    //         console.log('here!@#$T$')
-    //     } else {
-    //         dragDrop()
-    //     }
-    // })
 
     function dragDrop() {
-        // console.log('hit', isSquareFilled(this.id))
-        // if (isMoveValid(this.id)) {
-        //     alert("Invalid Move! Start Over")
-        //     return resetBoard()
-        // }
-        // if (this.id && isSquareFilled(this.id)) {
-        //     alert("Invalid Move! Start Over")
-        //     return resetBoard()
-        // }
+        // console.log('hit', isSquareFilled(this.id)) 
         this.className = 'filled'
         this.append(whichCar)
         console.log('drop')
@@ -280,7 +207,7 @@ document.getElementById('start').addEventListener('click', () => {
 
 
     function isMoveValid(id) {
-        // console.log("ismovevalid", id)
+        console.log("ismovevalid", id)
         // console.log('isMove', whichCar)
 
         // if whichCar === green car and id.includes("r2") return true else false
@@ -332,19 +259,19 @@ function isSquareFilled(id) {
 
 const greenCarSquares = () => {
     if (r2c2.contains(getGreenCarSpan)) {
-        r2c3.id = " nogo"
+        r2c3.className = " nogo"
     } else if
         (r2c3.contains(getGreenCarSpan)) {
-        r2c4.id = " nogo"
+        r2c4.className = " nogo"
     } else if
         (r2c4.contains(getGreenCarSpan)) {
-        r2c5.id = " nogo"
+        r2c5.className = " nogo"
     } else if
         (r2c5.contains(getGreenCarSpan)) {
-        r2c5.id = " nogo"
+        r2c5.className = " nogo"
     } else if
         (r2c6.contains(getGreenCarSpan)) {
-        r2c7.id = " nogo"
+        r2c7.className = " nogo"
     }
 }
 
@@ -367,6 +294,98 @@ const purpleDumpSquares = () => {
     }
 }
 
+const navyDumpSquares = () => {
+    if (r3c5.contains(getNavyDumpSpan)) {
+        r4c5.className = " nogo"
+        r5c5.className = " nogo"
+    } else if
+        (r2c5.contains(getNavyDumpSpan)) {
+        r3c5.className = " nogo"
+        r4c5.className = " nogo"
+    } else if
+        (r4c5.contains(getNavyDumpSpan)) {
+        r5c5.className = " nogo"
+        r6c5.className = " nogo"
+    } else if
+        (r5c5.contains(getNavyDumpSpan)) {
+        r6c5.className = " nogo"
+        r7c5.className = " nogo"
+    }
+}
+
+const yellowDumpSquares = () => {
+    if (r5c7.contains(getYellowDumpSpan)) {
+        r6c7.className = " nogo"
+        r7c7.className = " nogo"
+    } else if
+        (r2c7.contains(getYellowDumpSpan)) {
+        r3c7.className = " nogo"
+        r4c7.className = " nogo"
+    } else if
+        (r3c7.contains(getYellowDumpSpan)) {
+        r4c7.className = " nogo"
+        r3c7.className = " nogo"
+    } else if
+        (r4c7.contains(getYellowDumpSpan)) {
+        r5c7.className = " nogo"
+        r6c7.className = " nogo"
+    }
+}
+
+const lightBlueCarSquares = () => {
+    if (r6c6.contains(getlightBlueCarSpan)) {
+        r6c7.className = " nogo"
+    } else if
+        (r6c5.contains(getlightBlueCarSpan)) {
+        r6c6.className = " nogo"
+    } else if
+        (r6c4.contains(getlightBlueCarSpan)) {
+        r6c5.className = " nogo"
+    } else if
+        (r6c3.contains(getlightBlueCarSpan)) {
+        r6c4.className = " nogo"
+    }
+    else if
+        (r6c2.contains(getlightBlueCarSpan)) {
+        r6c3.className = " nogo"
+    }
+}
+const redCarSquares = () => {
+    if (r4c2.contains(getRedCarSpan)) {
+        r4c3.className = " nogo"
+    } else if
+        (r4c4.contains(getRedCarSpan)) {
+        r4c5.className = " nogo"
+    } else if
+        (r4c5.contains(getRedCarSpan)) {
+        r4c6.className = " nogo"
+    } else if
+        (r4c6.contains(getRedCarSpan)) {
+        r4c7.className = " nogo"
+    }
+    else if
+        (r4c3.contains(getRedCarSpan)) {
+        r4c4.className = " nogo"
+    }
+}
+const orangeCarSquares = () => {
+    if (r6c2.contains(getOrangeCarSpan)) {
+        r7c2.className = " nogo"
+    } else if
+        (r5c2.contains(getOrangeCarSpan)) {
+        r6c2.className = " nogo"
+    } else if
+        (r4c2.contains(getOrangeCarSpan)) {
+        r5c2.className = " nogo"
+    } else if
+        (r3c2.contains(getOrangeCarSpan)) {
+        r4c2.className = " nogo"
+    }
+    else if
+        (r2c2.contains(getOrangeCarSpan)) {
+        r3c2.className = " nogo"
+    }
+}
 // ==================RESET=================================
 
 const resetBoard = () => {
