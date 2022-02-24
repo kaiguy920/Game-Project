@@ -126,6 +126,10 @@ margin-left: 30px;
     border-style: dashed;
 }
 
+.nogo {
+    background: rgb(172, 58, 58);
+    border-style: dashed;
+}
 .invisible {
     display: gray;
 }

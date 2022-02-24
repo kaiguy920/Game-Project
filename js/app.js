@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     r7c4.appendChild(getTealDumpSpan)
 })
 
-console.log("green car span", getGreenCarSpan)
-parentNode.append()
+// console.log("green car span", getGreenCarSpan)
+// getGreenCarSpan.parentNode.append("div.#r2c3.squares")
 
 // const greenSpace = () => {
 //     for (let i = 0; i < squares.length; i++) {
@@ -151,6 +151,10 @@ document.getElementById('start').addEventListener('click', () => {
     })
     // ===============DRAGEND=============================
     getRedCarSpan.addEventListener('dragend', () => {
+        if (r4c8.contains(getRedCarSpan)) {
+            console.log("winner!!")
+            // winner.innerText = "You steared through that one!"
+        }
         dragEnd()
     })
     getNavyDumpSpan.addEventListener('dragend', () => {
@@ -176,6 +180,27 @@ document.getElementById('start').addEventListener('click', () => {
         dragEnd()
     })
 
+    // getTealDumpSpan.addEventListener('dragenter', (e) => {
+    //     // e.preventDefault()
+    //     //     // this.className += " hovered"
+    //     console.log('hit this bitch', e)
+    //     const square = document.getElementById(this.id)
+    //     // console.log('here::::', square.contains(getYellowDumpSpan))
+    //     // // Once you limit the travel to be horizontal or vertical then you know you only need to check the square for the specific cars it can run into.
+
+    //     // // if green car, red car - does square contain yellowdump, bluedump, or purpledump.
+    //     // if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
+
+    //     // }
+
+    //     // // if glue car - does square contains yellowdump, bluedump, purpledump, or orange car.
+    //     if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
+    //         console.log('here!@#$T$')
+    //     } else {
+    //         dragDrop()
+    //     }
+    // })
+
     function dragStart() {
         this.className += ' hold'
         setTimeout(() => this.className = 'invisible', 0)
@@ -189,15 +214,22 @@ document.getElementById('start').addEventListener('click', () => {
 
 
     function dragOver(e) {
+        if (!isMoveValid(this.id)) {
+            this.className += " nogo"
+        }
+        if (isSquareFilled(this.id)) {
+            this.className += " nogo"
+        }
         e.preventDefault()
-        this.className += " hovered"
+        // this.className += " hovered"
         // console.log("over");
 
     }
 
     function dragEnter(e) {
+
         e.preventDefault()
-        // this.className += " hovered"
+        this.className += " hovered"
         console.log("enter");
     }
 
@@ -205,16 +237,33 @@ document.getElementById('start').addEventListener('click', () => {
         this.className = 'empty'
         console.log('leave');
     }
+
+
+
+
+
     // ==============================DRAGDROP===============================================
 
-    getRedCarSpan.addEventListener('dragdrop', () => {
-        if (getRedCarSpan.document.dragDrop(r4c8)) {
-            console.log("you win!!")
-            console.log("what the what", getRedCarSpan.document.dragDrop(r4c8))
-        } else {
-            dragDrop()
-        }
-    })
+    // getRedCarSpan.addEventListener('dragdrop', () => {
+    //     // e.preventDefault()
+    //     //     // this.className += " hovered"
+    //     console.log('hit this bitch', e)
+    //     const square = document.getElementById(this.id)
+    //     // console.log('here::::', square.contains(getYellowDumpSpan))
+    //     // // Once you limit the travel to be horizontal or vertical then you know you only need to check the square for the specific cars it can run into.
+
+    //     // // if green car, red car - does square contain yellowdump, bluedump, or purpledump.
+    //     // if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
+
+    //     // }
+
+    //     // // if glue car - does square contains yellowdump, bluedump, purpledump, or orange car.
+    //     if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
+    //         console.log('here!@#$T$')
+    //     } else {
+    //         dragDrop()
+    //     }
+    // })
     // getNavyDumpSpan.addEventListener('dragdrop', () => {
     //     dragDrop()
     // })
@@ -238,18 +287,73 @@ document.getElementById('start').addEventListener('click', () => {
     //     dragDrop()
     // })
     function dragDrop() {
-        if (this.className === 'filled') {
-            return dragStart()
-        } else {
-            this.className = 'filled'
-            this.append(whichCar)
-            console.log('drop')
-        }
+        console.log('hit', isSquareFilled(this.id))
+        // if (isMoveValid(this.id)) {
+        //     alert("Invalid Move! Start Over")
+        //     return resetBoard()
+        // }
+        // if (this.id && isSquareFilled(this.id)) {
+        //     alert("Invalid Move! Start Over")
+        //     return resetBoard()
+        // }
+        this.className = 'filled'
+        this.append(whichCar)
+        console.log('drop')
         count += 1
         console.log("dragDrop function", dragDrop())
         document.getElementById("countMoves").innerText = count
     }
+
+    function isMoveValid(id) {
+        // console.log("ismovevalid", id)
+        // console.log('isMove', whichCar)
+
+        // if whichCar === green car and id.includes("r2") return true else false
+
+        if (whichCar === getGreenCarSpan && id.includes('r2')) {
+            return true
+        } else if
+            (whichCar === getPurpleDumpSpan && id.includes('c2')) {
+            return true
+        } else if
+            (whichCar === getOrangeCar && id.includes('r2')) {
+            return true
+        } else if
+            (whichCar === getRedCarSpan && id.includes('r4')) {
+            return true
+        } else if
+            (whichCar === getTealDumpSpan && id.includes('r7')) {
+            return true
+        } else if
+            (whichCar === getNavyDumpSpan && id.includes('c5')) {
+            return true
+        } else if
+            (whichCar === getYellowDumpSpan && id.includes('c7')) {
+            return true
+        } else if
+            (whichCar === getLightBlueCar && id.includes('r7')) {
+            return true
+        }
+        else {
+            return false
+        }
+
+    }
 })
+
+
+
+function isSquareFilled(id) {
+    console.log("id", id)
+    const square = document.getElementById(id)
+    console.log('square', square)
+    // Todo add all cars here:
+    if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
+        true
+    } else {
+        false
+    }
+}
 
 // ==================DETECT WIN=================================
 
@@ -273,10 +377,7 @@ document.getElementById('start').addEventListener('click', () => {
 //         winner.innerText = "You steared through that one!"
 //     }
 // })
-
-
-//  ==================RESET==================================
-document.getElementById('reset').addEventListener('click', () => {
+const resetBoard = () => {
     r2c2.appendChild(getGreenCarSpan)
     r3c2.appendChild(getPurpleDumpSpan)
     r6c2.appendChild(getOrangeCarSpan)
@@ -287,6 +388,11 @@ document.getElementById('reset').addEventListener('click', () => {
     r7c4.appendChild(getTealDumpSpan)
     count = 0
     document.getElementById("countMoves").innerText = count
+    winner.innerText = ""
+}
+//  ==================RESET==================================
+document.getElementById('reset').addEventListener('click', () => {
+    resetBoard()
 })
 
 // =======================LIMIT MOVES===========================
