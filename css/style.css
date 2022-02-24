@@ -316,12 +316,14 @@ grid-area: 5 / 8 / 9 / 9;
 
 #winner {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
      font-family: 'ZCOOL QingKe HuangYou', cursive;
      color: green;
      background: rgba(255, 255, 255, 0.9);
-     font-size: 40px;
+     font-size: 50px;
      padding: 50px 0;
+     align-content: center;
+     text-align: center;
  }

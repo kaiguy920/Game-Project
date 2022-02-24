@@ -153,7 +153,7 @@ document.getElementById('start').addEventListener('click', () => {
     getRedCarSpan.addEventListener('dragend', () => {
         if (r4c8.contains(getRedCarSpan)) {
             console.log("winner!!")
-            // winner.innerText = "You steared through that one!"
+            winner.innerText = "You steared through that one! \n 🏁 🚗 🎉"
         }
         dragEnd()
     })
@@ -287,7 +287,7 @@ document.getElementById('start').addEventListener('click', () => {
     //     dragDrop()
     // })
     function dragDrop() {
-        console.log('hit', isSquareFilled(this.id))
+        // console.log('hit', isSquareFilled(this.id))
         // if (isMoveValid(this.id)) {
         //     alert("Invalid Move! Start Over")
         //     return resetBoard()
@@ -300,7 +300,7 @@ document.getElementById('start').addEventListener('click', () => {
         this.append(whichCar)
         console.log('drop')
         count += 1
-        console.log("dragDrop function", dragDrop())
+        // console.log("dragDrop function", dragDrop())
         document.getElementById("countMoves").innerText = count
     }
 
@@ -310,28 +310,28 @@ document.getElementById('start').addEventListener('click', () => {
 
         // if whichCar === green car and id.includes("r2") return true else false
 
-        if (whichCar === getGreenCarSpan && id.includes('r2')) {
+        if (whichCar === getGreenCarSpan && id.includes('r2') && !id.includes('c7')) {
             return true
         } else if
-            (whichCar === getPurpleDumpSpan && id.includes('c2')) {
+            (whichCar === getPurpleDumpSpan && id.includes('c2') && !id.includes('r6') && !id.includes('r7')) {
             return true
         } else if
-            (whichCar === getOrangeCar && id.includes('r2')) {
+            (whichCar === getOrangeCarSpan && id.includes('c2') && !id.includes('r7')) {
             return true
         } else if
             (whichCar === getRedCarSpan && id.includes('r4')) {
             return true
         } else if
-            (whichCar === getTealDumpSpan && id.includes('r7')) {
+            (whichCar === getTealDumpSpan && id.includes('r7') && !id.includes('c6') && !id.includes('c7')) {
             return true
         } else if
-            (whichCar === getNavyDumpSpan && id.includes('c5')) {
+            (whichCar === getNavyDumpSpan && id.includes('c5') && !id.includes('r6') && !id.includes('r7')) {
             return true
         } else if
-            (whichCar === getYellowDumpSpan && id.includes('c7')) {
+            (whichCar === getYellowDumpSpan && id.includes('c7') && !id.includes('r6') && !id.includes('r7')) {
             return true
         } else if
-            (whichCar === getLightBlueCar && id.includes('r7')) {
+            (whichCar === getLightBlueCarSpan && id.includes('r6') && !id.includes('c7')) {
             return true
         }
         else {
@@ -344,9 +344,9 @@ document.getElementById('start').addEventListener('click', () => {
 
 
 function isSquareFilled(id) {
-    console.log("id", id)
+    // console.log("id", id)
     const square = document.getElementById(id)
-    console.log('square', square)
+    // console.log('square', square)
     // Todo add all cars here:
     if (square.contains(getYellowDumpSpan) || square.contains(getNavyDumpSpan) || square.contains(getPurpleDumpSpan)) {
         true
