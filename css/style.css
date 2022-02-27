@@ -261,25 +261,6 @@ margin-left: 30px;
     grid-area: 7 / 7 / 8 / 8;
 }
 
-#topOut {
-    grid-row: 1;
-}
-
-#leftOut {
-    grid-column: 1;
-}
-
-#bottomOut {
-    grid-row: 8;
-}
-
-#rightOutTop { 
-    grid-area: 1 / 8 / 4 / 9;
-}
-#rightOutBottom {
-grid-area: 5 / 8 / 9 / 9;
-}
-
 
 #navyDumpSpan{
     grid-area: 3 / 5 / 6 / 6; 
