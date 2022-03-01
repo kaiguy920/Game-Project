@@ -38,6 +38,8 @@ const getTealDumpSpan = document.querySelector('#tealDumpSpan')
 const getYellowDumpSpan = document.querySelector('#yellowDumpSpan')
 
 // =========================START=================================
+// this puts the cars on the board as the page loads 
+
 document.addEventListener('DOMContentLoaded', (event) => {
     r2c2.appendChild(getGreenCarSpan)
     r3c2.appendChild(getPurpleDumpSpan)
@@ -50,8 +52,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 // console.log(squares)
+// added click start to break up the drag event
+// served as a placeholder for trying to set up functions to declare other div's as filled as well
 document.getElementById('start').addEventListener('click', () => {
-
+    // dragover/dragenter/dragleave/dragdrop are all relevent to "empty squares"
     for (const empty of squares) {
         empty.addEventListener('dragover', dragOver);
         empty.addEventListener('dragenter', dragEnter);
@@ -61,7 +65,7 @@ document.getElementById('start').addEventListener('click', () => {
     }
 
     // ====================DRAGSTART===========================
-
+    // dragstart & drag end are specific to each car
     getRedCarSpan.addEventListener('dragstart', function (e) {
         // console.log("red car start event", e);
         // console.log("this in red car start", this);
@@ -151,14 +155,14 @@ document.getElementById('start').addEventListener('click', () => {
         this.className += ' hold'
         setTimeout(() => this.className = 'invisible', 0)
         // console.log('start')
-
     }
-
+    // called specifically in each car above
     function dragEnd() {
         // console.log('end')
 
     }
 
+    // function for while car is hovering
     function dragOver(e) {
 
         if (!isMoveValid(this.id)) {
@@ -167,7 +171,6 @@ document.getElementById('start').addEventListener('click', () => {
         if (isSquareFilled(this.id)) {
             this.className = " nogo"
         }
-
         e.preventDefault()
         // console.log("over");
     }
@@ -193,6 +196,7 @@ document.getElementById('start').addEventListener('click', () => {
         this.className = 'filled'
         this.append(whichCar)
         // console.log('drop')
+        // add count for each drop event
         count += 1
         // console.log("dragDrop function", dragDrop())
         document.getElementById("countMoves").innerText = count
@@ -204,7 +208,8 @@ document.getElementById('start').addEventListener('click', () => {
     function isMoveValid(id) {
         // console.log("ismovevalid", id)
         // console.log('isMove', whichCar)
-
+        // for each car, validating move it its in it's original assigned row/column & moving in the same plane
+        // adding the ! for out of bounse mose
         if (whichCar === getGreenCarSpan && id.includes('r2') && !id.includes('c7')) {
             // console.log("1 is move valid works!");
             return true
@@ -250,6 +255,7 @@ function isSquareFilled(id) {
     const square = document.getElementById(id)
     // console.log("id", id)
     // console.log('square', square)
+    // this still only pulls where the car is assigned but could have more functionality if find a way to assign other divs to the cars
     if (square.contains(yellowDumpSpan) || square.contains(navyDumpSpan) || square.contains(purpleDumpSpan) || square.contains(orangeCarSpan) || square.contains(redCarSpan) || square.contains(lightBlueCarSpan) || square.contains(greenCarSpan) || square.contains(orangeCarSpan)) {
         // console.log("is square filled working TRUUUUUEEE");
         true
@@ -259,7 +265,7 @@ function isSquareFilled(id) {
 }
 
 // ==================RESET=================================
-
+// reset button putting cars in original append & set count to 0
 const resetBoard = () => {
     r2c2.appendChild(getGreenCarSpan)
     r3c2.appendChild(getPurpleDumpSpan)
