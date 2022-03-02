@@ -18,9 +18,11 @@ This is the content for my game
 - loss condition: maybe giving a set amount of time per level; or tracking time completion to the end & storing that time to challenge yourself or compare to another player
 
 **INSTALLATION INSTRUCTIONS**
+- follow repo link to open page to game
 
 **UNSOLVED PROBLEMS**
-
+- each car is still only being detected at one div/grid space, making it undectable at the other 1-2 spaces to prevent being played over
+- unable to hard code a prevent play in the wrong row/column due to the inability to detect full location
 **WIRE FRAME**
 ![board example](wireframe_for_game.jpg)
 ![page](fullpage.jpeg)
